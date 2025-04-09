@@ -6,6 +6,7 @@ plugins {
 android {
     namespace = "com.example.brokenomore_prog7313"
     compileSdk = 35
+    viewBinding.isEnabled = true
 
     defaultConfig {
         applicationId = "com.example.brokenomore_prog7313"
