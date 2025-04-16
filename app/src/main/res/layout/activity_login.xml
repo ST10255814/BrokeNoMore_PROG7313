@@ -41,12 +41,12 @@
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="50dp"
         android:layout_marginStart="36dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="35dp"
         android:alpha="12"
-        android:background="@drawable/round"
+        android:background="@drawable/edittext_background"
         android:drawableLeft="@drawable/email_png"
         android:drawablePadding="20sp"
         android:ems="10"
@@ -54,7 +54,8 @@
         android:hint="Email Address"
         android:inputType="textEmailAddress"
         android:paddingLeft="15sp"
-        android:textColorHint="#000000"
+        android:textColorHint="#AFAFAF"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/edtPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,12 +64,12 @@
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="50dp"
         android:layout_marginStart="36dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="34dp"
         android:alpha="12"
-        android:background="@drawable/round"
+        android:background="@drawable/edittext_background"
         android:drawableLeft="@drawable/password_png"
         android:drawablePadding="20sp"
         android:ems="10"
@@ -76,7 +77,8 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="15sp"
-        android:textColorHint="#000000"
+        android:textColorHint="#AFAFAF"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +87,7 @@
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="50dp"
         android:layout_marginStart="62dp"
         android:layout_marginEnd="62dp"
         android:layout_marginBottom="128dp"
@@ -97,5 +99,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="163dp"
+        android:layout_height="19dp"
+        android:text="Don't have an account?"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn"
+        app:layout_constraintVertical_bias="0.173" />
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="81dp"
+        android:layout_height="19dp"
+        android:clickable="true"
+        android:text="Register"
+        android:textColor="#AFAFAF"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.778"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn"
+        app:layout_constraintVertical_bias="0.173" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="208dp"
+        android:layout_height="212dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
