@@ -21,6 +21,5 @@ class RegisterActivity : AppCompatActivity() {
             val intent = Intent(this, ActivityLoginBinding::class.java)
             startActivity(intent)
         }
-
     }
 }
