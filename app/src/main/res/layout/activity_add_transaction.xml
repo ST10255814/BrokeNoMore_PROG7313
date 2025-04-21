@@ -7,4 +7,153 @@
     android:layout_height="match_parent"
     tools:context=".AddTransaction">
 
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BrokeNoMore"
+        tools:layout_editor_absoluteX="167dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/app_settings"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/user_png"
+        tools:layout_editor_absoluteX="342dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a Transaction"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="100dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="311dp"
+        android:layout_height="41dp"
+        android:text="Please ensure that all the details that are entered are accurate as no changes are permitted after"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="128dp" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction Description"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="197dp" />
+
+    <EditText
+        android:id="@+id/transactionDescriptionEditTxt"
+        android:layout_width="335dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Description"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="225dp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date & Time of Transaction"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="293dp" />
+
+    <EditText
+        android:id="@+id/transactionDateTxt"
+        android:layout_width="97dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="date"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="332dp" />
+
+    <EditText
+        android:id="@+id/transactionStartTimeTxt"
+        android:layout_width="103dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="time"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="332dp" />
+
+    <EditText
+        android:id="@+id/transactionEndTimeTxt"
+        android:layout_width="103dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="time"
+        tools:layout_editor_absoluteX="263dp"
+        tools:layout_editor_absoluteY="332dp" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="396dp" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="474dp" />
+
+    <EditText
+        android:id="@+id/transactionAmountTxt"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="504dp" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Receipt or proof of transaction (optional)"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="564dp" />
+
+    <Button
+        android:id="@+id/uploadTransactionReceiptBtn"
+        android:layout_width="162dp"
+        android:layout_height="0dp"
+        android:text="Upload Receipt"
+        tools:layout_editor_absoluteX="201dp"
+        tools:layout_editor_absoluteY="609dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="162dp"
+        android:layout_height="78dp"
+        app:srcCompat="@drawable/budget_temp_icon"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="594dp" />
+
+    <Button
+        android:id="@+id/addTransactionBtn"
+        android:layout_width="348dp"
+        android:layout_height="44dp"
+        android:text="Add Transaction"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="690dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

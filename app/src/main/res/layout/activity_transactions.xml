@@ -7,4 +7,49 @@
     android:layout_height="match_parent"
     tools:context=".TransactionManagement">
 
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BrokeNoMore"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="23dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/app_settings"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="23dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/user_png"
+        tools:layout_editor_absoluteX="342dp"
+        tools:layout_editor_absoluteY="18dp" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction History"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="90dp" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a transaction"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="274dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="367dp"
+        android:layout_height="445dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="302dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
