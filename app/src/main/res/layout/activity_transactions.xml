@@ -11,45 +11,60 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="23dp"
         android:text="BrokeNoMore"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="23dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/app_settings"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="23dp" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="23dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/app_settings" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/user_png"
-        tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="18dp" />
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_png" />
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
         android:text="Transaction History"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="90dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
         android:text="Add a transaction"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="274dp" />
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="367dp"
-        android:layout_height="445dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="302dp" />
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="440dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="82dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
