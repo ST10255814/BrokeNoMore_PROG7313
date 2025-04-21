@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/my_spinner"
+        android:id="@+id/budgetSpinner"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
@@ -89,7 +89,7 @@
         android:focusable="false"
         android:hint="Date of Birth"
         android:inputType="none"
-        app:layout_constraintBottom_toTopOf="@+id/my_spinner"
+        app:layout_constraintBottom_toTopOf="@+id/budgetSpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -106,6 +106,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/budgetSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -86,12 +86,12 @@
         android:layout_marginTop="121dp"
         android:layout_marginBottom="121dp"
         android:text="Budget name"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2"
+        app:layout_constraintBottom_toTopOf="@+id/minAmountTxt"
+        app:layout_constraintStart_toStartOf="@+id/budgetNameTxt"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/budgetNameTxt"
         android:layout_width="336dp"
         android:layout_height="61dp"
         android:layout_marginStart="31dp"
@@ -117,11 +117,11 @@
         android:layout_marginBottom="311dp"
         android:text="Min Amount"
         app:layout_constraintBottom_toTopOf="@+id/textView20"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/minAmountTxt"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/minAmountTxt"
         android:layout_width="331dp"
         android:layout_height="53dp"
         android:layout_marginStart="31dp"
@@ -147,10 +147,10 @@
         android:layout_marginBottom="72dp"
         android:text="Max Amount"
         app:layout_constraintBottom_toTopOf="@+id/textView18"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal2" />
+        app:layout_constraintStart_toStartOf="@+id/maxAmountTxt" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal2"
+        android:id="@+id/maxAmountTxt"
         android:layout_width="331dp"
         android:layout_height="52dp"
         android:layout_marginStart="31dp"
@@ -185,7 +185,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginBottom="296dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal2"
+        app:layout_constraintStart_toStartOf="@+id/maxAmountTxt"
         app:srcCompat="@drawable/budget_temp_icon" />
 
     <TextView
@@ -200,7 +200,7 @@
 
 
     <Spinner
-        android:id="@+id/my_spinner"
+        android:id="@+id/budgetSpinner"
         android:layout_width="299dp"
         android:layout_height="54dp"
         android:layout_marginStart="34dp"
@@ -217,7 +217,7 @@
         android:layout_marginBottom="169dp"
         android:text="Create a new category"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/my_spinner" />
+        app:layout_constraintStart_toStartOf="@+id/budgetSpinner" />
 
     <Button
         android:id="@+id/Create_Category_btn"
@@ -228,12 +228,12 @@
         android:layout_marginEnd="34dp"
         android:layout_marginBottom="103dp"
         android:backgroundTint="#28BF9C"
-        android:text="Button"
+        android:text="Create Budget"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/my_spinner"
+        app:layout_constraintTop_toTopOf="@+id/budgetSpinner"
         app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
