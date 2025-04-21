@@ -11,4 +11,5 @@
     <color name="card_shadow">#26000000</color>
     <color name="accent_yellow">#FFB400</color>
     <color name="accent_green">#00E676</color>
+    <color name="splashscreen">#0B2922</color>
 </resources>
