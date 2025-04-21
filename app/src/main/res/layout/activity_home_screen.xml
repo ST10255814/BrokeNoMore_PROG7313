@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,72 +8,51 @@
 
     <!-- Top Bar -->
 
-    <ScrollView
-        android:id="@+id/budgetView"
-        android:layout_width="349dp"
-        android:layout_height="141dp"
-        android:layout_marginBottom="392dp"
-        android:background="@color/faded_white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
     <LinearLayout
         android:id="@+id/topBar"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/menuIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/app_settings"/>
+            android:src="@drawable/app_settings" />
 
         <TextView
             android:id="@+id/pageTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_weight="1"
             android:text="BrokeNoMore"
-            android:textColor="@color/primary_dark_green"
             android:textAlignment="center"
+            android:textColor="@color/primary_dark_green"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_weight="1" />
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/profilePic"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/user_png" />
+            android:background="@drawable/user_png"
+            android:scaleType="centerCrop" />
     </LinearLayout>
 
     <!-- Budget Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/budgetCard"
-        android:layout_width="0dp"
-        android:layout_height="160dp"
-        android:layout_margin="16dp"
+        android:layout_width="379dp"
+        android:layout_height="111dp"
+        android:background="@drawable/gradient_budget_card"
         app:cardCornerRadius="24dp"
         app:cardElevation="10dp"
-        app:layout_constraintTop_toBottomOf="@id/topBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/gradient_budget_card"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="84dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,32 +71,30 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="59dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="4dp"
                 android:textColor="@android:color/white"
                 android:textSize="22sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="4dp"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/faded_white"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <!-- Tabs -->
     <LinearLayout
         android:id="@+id/expenseIncomeTabs"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="367dp"
+        android:layout_height="111dp"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/budgetCard"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="203dp">
 
         <TextView
             android:id="@+id/tabExpenses"
@@ -132,9 +108,9 @@
             android:id="@+id/tabIncome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Income"
             android:layout_marginStart="24dp"
-            android:textColor="@color/tab_inactive"/>
+            android:text="Income"
+            android:textColor="@color/tab_inactive" />
     </LinearLayout>
 
     <!-- Charts -->
@@ -142,32 +118,30 @@
     <!-- Category Cards -->
     <LinearLayout
         android:id="@+id/categoryContainer"
-        android:layout_width="0dp"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp"
         android:layout_marginHorizontal="16dp"
-        app:layout_constraintTop_toBottomOf="@id/expenseIncomeTabs"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="323dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            app:cardElevation="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
             app:cardCornerRadius="8dp"
-            android:backgroundTint="#FFFFFF"/>
+            app:cardElevation="4dp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="8dp"
-            app:cardElevation="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
             app:cardCornerRadius="8dp"
-            android:backgroundTint="#FFFFFF"/>
+            app:cardElevation="4dp" />
     </LinearLayout>
 
     <!-- Transactions -->
@@ -178,39 +152,34 @@
         android:id="@+id/transactionsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="176dp"
         android:text="Recent Transactions"
         android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categoryContainer" />
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="446dp" />
 
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
+        android:layout_width="411dp"
+        android:layout_height="111dp"
         android:background="@color/primary_dark_green"
-        android:weightSum="5"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:orientation="horizontal"
+        android:weightSum="5"
+        tools:layout_editor_absoluteY="620dp">
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:src="@drawable/home_png" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:src="@drawable/wallet_png" />
 
         <ImageView
@@ -226,33 +195,31 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:src="@drawable/clock_png" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:src="@drawable/reward_png" />
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/transactionView"
-        android:layout_width="355dp"
-        android:layout_height="252dp"
-        android:layout_marginBottom="88dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/faded_white">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/expensesCycleView"
+        android:layout_width="373dp"
+        android:layout_height="112dp"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="326dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recentTransactionsCycleView"
+        android:layout_width="377dp"
+        android:layout_height="111dp"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="477dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
