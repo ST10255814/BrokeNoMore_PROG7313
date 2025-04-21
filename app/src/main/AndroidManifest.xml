@@ -16,12 +16,6 @@
             android:name=".AllBudgets"
             android:exported="false" />
         <activity
-            android:name=".AddCard"
-            android:exported="false" />
-        <activity
-            android:name=".WalletManagement"
-            android:exported="false" />
-        <activity
             android:name=".BudgetManagement"
             android:exported="false" />
         <activity

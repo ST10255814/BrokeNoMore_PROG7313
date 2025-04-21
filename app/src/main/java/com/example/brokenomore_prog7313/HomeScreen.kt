@@ -1,5 +1,6 @@
 package com.example.brokenomore_prog7313
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
@@ -18,6 +19,10 @@ class HomeScreen : AppCompatActivity() {
         binding = ActivityHomeScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.addBudgetButton.setOnClickListener {
+            val intent = Intent(this, BudgetManagement::class.java)
+            startActivity(intent)
+        }
 
     }
 }

@@ -214,7 +214,7 @@
             android:src="@drawable/wallet_png" />
 
         <ImageView
-            android:id="@+id/addButton"
+            android:id="@+id/addBudgetButton"
             android:layout_width="2dp"
             android:layout_height="64dp"
             android:layout_gravity="center"
