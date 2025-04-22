@@ -51,12 +51,13 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <EditText
         android:id="@+id/rgtPassword"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="156dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edittext_background"
         android:drawableLeft="@drawable/password_png"
@@ -73,32 +74,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/rgtName"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/edittext_background"
-        android:drawableLeft="@drawable/user_png"
-        android:drawablePadding="12dp"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:paddingStart="16dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#AFAFAF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <EditText
         android:id="@+id/rgtEmail"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edittext_background"
         android:drawableLeft="@drawable/email_png"
