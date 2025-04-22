@@ -7,153 +7,287 @@
     android:layout_height="match_parent"
     tools:context=".AddTransaction">
 
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="BrokeNoMore"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="30dp" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/app_settings"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="30dp" />
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/app_settings" />
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/user_png"
-        tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="30dp" />
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="BrokeNoMore"
+            android:textAlignment="center"
+            android:textColor="@color/primary_dark_green"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/user_png"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add a Transaction"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="100dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar"
+        app:layout_constraintVertical_bias="0.51" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="311dp"
         android:layout_height="41dp"
         android:text="Please ensure that all the details that are entered are accurate as no changes are permitted after"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="128dp" />
+        app:layout_constraintBottom_toTopOf="@+id/transactionStartTimeTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar"
+        app:layout_constraintVertical_bias="0.295" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Transaction Description"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="197dp" />
+        app:layout_constraintBottom_toTopOf="@+id/transactionDateTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        app:layout_constraintVertical_bias="0.333" />
 
     <EditText
         android:id="@+id/transactionDescriptionEditTxt"
         android:layout_width="335dp"
         android:layout_height="46dp"
+        android:background="@drawable/square_button"
         android:ems="10"
         android:inputType="text"
         android:text="Description"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="225dp" />
+        app:layout_constraintBottom_toTopOf="@+id/transactionStartTimeTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27"
+        app:layout_constraintVertical_bias="0.375" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date & Time of Transaction"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="293dp" />
+        android:text="Date and Time of Transaction"
+        app:layout_constraintBottom_toTopOf="@+id/transactionDateTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionDescriptionEditTxt"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/transactionDateTxt"
-        android:layout_width="97dp"
-        android:layout_height="38dp"
+        android:layout_width="104dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/square_button"
         android:ems="10"
         android:inputType="date"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="332dp" />
+        app:layout_constraintBottom_toTopOf="@+id/addTransactionBtn"
+        app:layout_constraintEnd_toStartOf="@+id/transactionStartTimeTxt"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        app:layout_constraintVertical_bias="0.341" />
 
     <EditText
         android:id="@+id/transactionStartTimeTxt"
-        android:layout_width="103dp"
-        android:layout_height="37dp"
+        android:layout_width="113dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="392dp"
+        android:background="@drawable/square_button"
         android:ems="10"
         android:inputType="time"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="332dp" />
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toStartOf="@+id/transactionEndTimeTxt"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/transactionEndTimeTxt"
-        android:layout_width="103dp"
-        android:layout_height="37dp"
+        android:layout_width="109dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/square_button"
         android:ems="10"
         android:inputType="time"
-        tools:layout_editor_absoluteX="263dp"
-        tools:layout_editor_absoluteY="332dp" />
+        app:layout_constraintBottom_toTopOf="@+id/transactionAmountTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionDescriptionEditTxt"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
         android:text="Category"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="396dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionDateTxt"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Amount"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="474dp" />
+        app:layout_constraintBottom_toTopOf="@+id/transactionAmountTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionStartTimeTxt"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/transactionAmountTxt"
         android:layout_width="343dp"
         android:layout_height="48dp"
+        android:layout_marginTop="128dp"
+        android:background="@drawable/square_button"
         android:ems="10"
         android:inputType="numberDecimal"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="504dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionStartTimeTxt" />
 
     <TextView
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="Receipt or proof of transaction (optional)"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="564dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionAmountTxt"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/uploadTransactionReceiptBtn"
         android:layout_width="162dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="#28BF9C"
         android:text="Upload Receipt"
-        tools:layout_editor_absoluteX="201dp"
-        tools:layout_editor_absoluteY="609dp" />
+        app:layout_constraintBottom_toTopOf="@+id/addTransactionBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView12"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="162dp"
         android:layout_height="78dp"
-        app:srcCompat="@drawable/budget_temp_icon"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="594dp" />
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/addTransactionBtn"
+        app:layout_constraintEnd_toStartOf="@+id/uploadTransactionReceiptBtn"
+        app:srcCompat="@drawable/budget_temp_icon" />
 
     <Button
         android:id="@+id/addTransactionBtn"
         android:layout_width="348dp"
         android:layout_height="44dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#28BF9C"
         android:text="Add Transaction"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="690dp" />
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionAmountTxt"
+        app:layout_constraintVertical_bias="0.968" />
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="393dp"
+        android:layout_height="0dp"
+        android:background="@color/primary_dark_green"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/home_png" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/wallet_png" />
+
+        <ImageView
+            android:id="@+id/addButton"
+            android:layout_width="2dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/circle_button"
+            android:elevation="6dp"
+            android:src="@drawable/add_png" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/clock_png" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/reward_png" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
