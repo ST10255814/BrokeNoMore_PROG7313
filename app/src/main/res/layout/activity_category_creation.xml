@@ -118,12 +118,12 @@
         android:layout_marginStart="26dp"
         android:layout_marginBottom="40dp"
         android:text="Category Preview"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/category_icon_custom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categoryIconUploadBtn" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/category_icon_custom"
         android:layout_width="148dp"
         android:layout_height="109dp"
         android:layout_marginStart="26dp"
@@ -142,9 +142,9 @@
         android:layout_marginEnd="145dp"
         android:layout_marginBottom="54dp"
         android:text="Medical"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintBottom_toBottomOf="@+id/category_icon_custom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView5" />
+        app:layout_constraintStart_toEndOf="@+id/category_icon_custom" />
 
     <Button
         android:id="@+id/createCategoryBtn"
@@ -159,7 +159,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/category_icon_custom" />
 
     <LinearLayout
         android:id="@+id/bottomNav"
