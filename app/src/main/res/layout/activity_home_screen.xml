@@ -37,10 +37,11 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
-            android:id="@+id/menuIcon"
+            android:id="@+id/logOut"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/app_settings"/>
+            android:src="@drawable/app_settings"
+            android:clickable="true"/>
 
         <TextView
             android:id="@+id/pageTitle"
