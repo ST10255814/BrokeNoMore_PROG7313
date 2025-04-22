@@ -196,7 +196,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Receipt or proof of transaction (optional)"
-        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        app:layout_constraintBottom_toTopOf="@+id/receipt_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toStartOf="parent"
@@ -214,18 +214,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView12"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/receipt_image"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/receipt_image"
         android:layout_width="162dp"
         android:layout_height="78dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/addTransactionBtn"
-        app:layout_constraintEnd_toStartOf="@+id/uploadTransactionReceiptBtn"
-        app:srcCompat="@drawable/budget_temp_icon" />
+        app:layout_constraintEnd_toStartOf="@+id/uploadTransactionReceiptBtn" />
 
     <Button
         android:id="@+id/addTransactionBtn"
