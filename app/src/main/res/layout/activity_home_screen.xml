@@ -8,23 +8,6 @@
     android:background="#FFFFFF">
 
     <!-- Top Bar -->
-
-    <ScrollView
-        android:id="@+id/budgetView"
-        android:layout_width="349dp"
-        android:layout_height="141dp"
-        android:layout_marginBottom="392dp"
-        android:background="@color/faded_white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
@@ -138,8 +121,6 @@
             android:textColor="@color/tab_inactive"/>
     </LinearLayout>
 
-    <!-- Charts -->
-
     <!-- Category Cards -->
     <LinearLayout
         android:id="@+id/categoryContainer"
@@ -171,10 +152,19 @@
             android:backgroundTint="#FFFFFF"/>
     </LinearLayout>
 
+    <!-- Category recycle view for expenses -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/budgetView"
+        android:layout_width="349dp"
+        android:layout_height="141dp"
+        android:layout_marginBottom="392dp"
+        android:background="@color/faded_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
     <!-- Transactions -->
-
-    <!-- Bottom Navigation -->
-
     <TextView
         android:id="@+id/transactionsTitle"
         android:layout_width="wrap_content"
@@ -187,6 +177,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/categoryContainer" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactionView"
+        android:layout_width="355dp"
+        android:layout_height="252dp"
+        android:layout_marginBottom="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/faded_white">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -238,22 +240,4 @@
             android:layout_gravity="center"
             android:src="@drawable/reward_png" />
     </LinearLayout>
-
-    <ScrollView
-        android:id="@+id/transactionView"
-        android:layout_width="355dp"
-        android:layout_height="252dp"
-        android:layout_marginBottom="88dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/faded_white">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
