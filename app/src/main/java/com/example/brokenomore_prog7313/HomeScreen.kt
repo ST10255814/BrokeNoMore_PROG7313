@@ -13,14 +13,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.brokenomore_prog7313.databinding.ActivityHomeScreenBinding
 import com.google.firebase.auth.FirebaseAuth
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
 
 class HomeScreen : AppCompatActivity() {
     private lateinit var binding: ActivityHomeScreenBinding
     private lateinit var auth : FirebaseAuth
     private lateinit var categoryExpenseDataList: ArrayList<CategoryExpensesDataClass>
+    private lateinit var transactionExpensesDataList: ArrayList<TransactionExpenseDataClass>
     lateinit var imageList: Array<Int>
+    lateinit var dateList: Array<String>
     lateinit var categoryList: Array<String>
-    lateinit var amountList: Array<Double>
+    lateinit var transactionList: Array<String>
+    lateinit var amountList: Array<String>
+    lateinit var transactionAmountList: Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,35 +50,70 @@ class HomeScreen : AppCompatActivity() {
             R.drawable.ic_camera)
 
         categoryList = arrayOf(
-            "ListView",
-            "CheckBox",
-            "ImageView",
-            "Toggle Switch",
-            "Date Picker",
-            "Rating Bar",
-            "Time Picker",
-            "TextView",
-            "EditText",
-            "Camera")
+            "Food",
+            "Utilities",
+            "Travel",
+            "Shopping",
+            "Rent",
+            "Going Out",
+            "Car",
+            "Savings",
+            "Activities",
+            "Wedding")
 
         amountList = arrayOf(
-            2003.00,
-            2120.87,
-            2003.00,
-            2120.87,
-            2003.00,
-            2120.87,
-            2003.00,
-            2120.87,
-            2003.00,
-            2120.87)
+            "R2003.00",
+            "R2120.87",
+            "R2003.00",
+            "R2120.87",
+            "R2003.00",
+            "R2120.87",
+            "R2003.00",
+            "R2120.87",
+            "R2003.00",
+            "R2120.87"
+        )
+
+        dateList = Array(10) { "" }
+
+        generateDateList()
+
+        transactionList = arrayOf(
+            "Food",
+            "Utilities",
+            "Travel",
+            "Shopping",
+            "Rent",
+            "Going Out",
+            "Car",
+            "Savings",
+            "Activities",
+            "Wedding")
+
+        transactionAmountList = arrayOf(
+            "R2003.00",
+            "R2120.87",
+            "R2003.00",
+            "R2120.87",
+            "R2003.00",
+            "R2120.87",
+            "R2003.00",
+            "R2120.87",
+            "R2003.00",
+            "R2120.87"
+        )
 
         binding.budgetView.layoutManager = LinearLayoutManager(this)
         binding.budgetView.setHasFixedSize(true)
 
+        binding.transactionView.layoutManager = LinearLayoutManager(this)
+        binding.transactionView.setHasFixedSize(true)
+
         categoryExpenseDataList = arrayListOf<CategoryExpensesDataClass>()
+        transactionExpensesDataList = arrayListOf<TransactionExpenseDataClass>()
 
         getCategoryExpensesData()
+        getTransactionsExpensesData()
 
         binding.addBudgetButton.setOnClickListener {
             val intent = Intent(this, BudgetManagement::class.java)
@@ -92,5 +134,24 @@ class HomeScreen : AppCompatActivity() {
             categoryExpenseDataList.add(dataClass)
         }
         binding.budgetView.adapter = CategoryExpensesAdapterClass(categoryExpenseDataList)
+    }
+
+    private fun getTransactionsExpensesData(){
+        for(i in dateList.indices){
+            val dataClass = TransactionExpenseDataClass(dateList[i], transactionList[i], transactionAmountList[i])
+            transactionExpensesDataList.add(dataClass)
+        }
+        binding.transactionView.adapter = TransactionExpenseAdapterClass(transactionExpensesDataList)
+    }
+
+    private fun generateDateList() {
+        val calendar = Calendar.getInstance()
+        val dateFormat = SimpleDateFormat("dd MMM")  // Format: day and abbreviated month
+
+        for (i in dateList.indices) {
+            // Add i days to the current date
+            calendar.add(Calendar.DAY_OF_MONTH, i)
+            dateList[i] = dateFormat.format(calendar.time)  // Format the date and store as a string
+        }
     }
 }
