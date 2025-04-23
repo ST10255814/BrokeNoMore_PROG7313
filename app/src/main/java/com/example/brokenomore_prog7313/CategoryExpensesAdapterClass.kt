@@ -23,7 +23,7 @@ RecyclerView.Adapter<CategoryExpensesAdapterClass.ViewHolderClass>(){
         val currentItems = dataList[position]
         holder.rvImageView.setImageResource(currentItems.categoryImage)
         holder.rvCategoryName.text = currentItems.categoryName
-        holder.rvAmount.text = currentItems.amount.toString()
+        holder.rvAmount.text = currentItems.amount
     }
 
     class ViewHolderClass(itemView: View): RecyclerView.ViewHolder(itemView){
