@@ -205,18 +205,24 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
+            android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/home_png" />
+            android:src="@drawable/home_png"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageView
+            android:id="@+id/allBudgets"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/wallet_png" />
+            android:src="@drawable/wallet_png"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageView
             android:id="@+id/addBudgetButton"
@@ -226,20 +232,27 @@
             android:layout_weight="1"
             android:background="@drawable/circle_button"
             android:elevation="6dp"
-            android:src="@drawable/add_png" />
+            android:src="@drawable/add_png"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <ImageView
+            android:id="@+id/transactionHistory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/clock_png"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/clock_png" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:src="@drawable/reward_png" />
+            android:src="@drawable/reward_png"
+            android:clickable="true"
+            android:focusable="true"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

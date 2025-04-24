@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.brokenomore_prog7313.databinding.ActivityHomeScreenBinding
+import com.example.brokenomore_prog7313.databinding.ActivityTransactionsBinding
 import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -117,6 +118,16 @@ class HomeScreen : AppCompatActivity() {
 
         binding.addBudgetButton.setOnClickListener {
             val intent = Intent(this, BudgetManagement::class.java)
+            startActivity(intent)
+        }
+
+        binding.transactionHistory.setOnClickListener{
+            val intent = Intent(this, ActivityTransactionsBinding::class.java)
+            startActivity(intent)
+        }
+
+        binding.home.setOnClickListener{
+            val intent = Intent(this, ActivityHomeScreenBinding::class.java)
             startActivity(intent)
         }
 
