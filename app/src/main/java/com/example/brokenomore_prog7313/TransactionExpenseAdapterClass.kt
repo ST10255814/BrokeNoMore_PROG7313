@@ -20,9 +20,9 @@ class TransactionExpenseAdapterClass (private val dataList:ArrayList<Transaction
 
     override fun onBindViewHolder(holder: ViewHolderClass, position: Int) {
         val currentItems = dataList[position]
-        holder.rvDate.text = currentItems.transactionDate.toString()
+        holder.rvDate.text = currentItems.transactionDate
         holder.rvTransactionDescription.text = currentItems.transactionDescription
-        holder.rvTransactionAmount.text = currentItems.transactionAmount.toString()
+        holder.rvTransactionAmount.text = currentItems.transactionAmount
     }
 
     class ViewHolderClass(itemView: View): RecyclerView.ViewHolder(itemView) {
