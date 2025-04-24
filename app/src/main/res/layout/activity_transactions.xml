@@ -23,10 +23,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/menuIcon"
+            android:id="@+id/logout"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/app_settings" />
+            android:src="@drawable/app_settings"  />
 
         <TextView
             android:id="@+id/pageTitle"
@@ -58,7 +58,7 @@
         app:cardCornerRadius="24dp"
         app:cardElevation="10dp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toTopOf="@+id/textView23"
+        app:layout_constraintBottom_toTopOf="@+id/addTransactions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBar">
@@ -196,16 +196,18 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/addTransactions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
         android:text="Add a transaction"
         android:textColor="@color/primary_dark_green"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/allTransactionsRecyclerView"
         app:layout_constraintStart_toStartOf="@+id/budgetCard"
-        app:layout_constraintTop_toBottomOf="@+id/budgetCard" />
+        app:layout_constraintTop_toBottomOf="@+id/budgetCard"
+        android:clickable="true"
+        android:focusable="true"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/allTransactionsRecyclerView"
@@ -217,7 +219,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+        app:layout_constraintTop_toBottomOf="@+id/addTransactions" />
 
     <LinearLayout
         android:id="@+id/bottomNav"

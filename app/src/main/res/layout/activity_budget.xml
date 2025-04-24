@@ -19,10 +19,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/menuIcon"
+            android:id="@+id/logout"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/app_settings" />
+            android:src="@drawable/app_settings"  />
 
         <TextView
             android:id="@+id/pageTitle"
@@ -116,7 +116,7 @@
         android:layout_marginTop="311dp"
         android:layout_marginBottom="311dp"
         android:text="Min Amount"
-        app:layout_constraintBottom_toTopOf="@+id/textView20"
+        app:layout_constraintBottom_toTopOf="@+id/createCategoryNavBtn"
         app:layout_constraintStart_toStartOf="@+id/minAmountTxt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -206,21 +206,23 @@
         android:layout_marginStart="34dp"
         android:layout_marginTop="26dp"
         android:layout_marginBottom="29dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+        app:layout_constraintBottom_toBottomOf="@+id/createCategoryNavBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView19" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/createCategoryNavBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="169dp"
         android:text="Create a new category"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/budgetSpinner" />
+        app:layout_constraintStart_toStartOf="@+id/budgetSpinner"
+        android:clickable="true"
+        android:focusable="true"/>
 
     <Button
-        android:id="@+id/Create_Category_btn"
+        android:id="@+id/createBudgetBtn"
         android:layout_width="324dp"
         android:layout_height="52dp"
         android:layout_marginStart="34dp"

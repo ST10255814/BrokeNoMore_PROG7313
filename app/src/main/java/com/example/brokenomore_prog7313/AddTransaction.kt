@@ -1,20 +1,50 @@
 package com.example.brokenomore_prog7313
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.SurfaceControl.Transaction
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.brokenomore_prog7313.databinding.ActivityAddTransactionBinding
+import com.example.brokenomore_prog7313.databinding.ActivityHomeScreenBinding
+import com.example.brokenomore_prog7313.databinding.ActivityTransactionsBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class AddTransaction : AppCompatActivity() {
+    private lateinit var binding : ActivityAddTransactionBinding
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_add_transaction)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        auth = FirebaseAuth.getInstance()
+        binding = ActivityAddTransactionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.addBudgetButton.setOnClickListener {
+            val intent = Intent(this, BudgetManagement::class.java)
+            startActivity(intent)
         }
+
+        binding.transactionHistory.setOnClickListener{
+            val intent = Intent(this, AddTransaction::class.java)
+            startActivity(intent)
+        }
+
+        binding.home.setOnClickListener{
+            val intent = Intent(this, HomeScreen::class.java)
+            startActivity(intent)
+        }
+
+        binding.logout.setOnClickListener{
+            auth.signOut()
+            var intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            Toast.makeText(this, "User logged out successfully", Toast.LENGTH_LONG).show()
+        }
+
     }
 }

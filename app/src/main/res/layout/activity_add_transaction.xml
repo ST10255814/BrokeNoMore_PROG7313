@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/menuIcon"
+            android:id="@+id/logout"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/app_settings" />

@@ -9,14 +9,19 @@
 
     <LinearLayout
         android:id="@+id/topBar"
-        android:layout_width="393dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/menuIcon"
+            android:id="@+id/logout"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/app_settings" />
@@ -44,33 +49,36 @@
 
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="393dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/primary_dark_green"
         android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="5"
-        tools:layout_editor_absoluteY="765dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goBack">
 
         <ImageView
             android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/home_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/home_png" />
 
         <ImageView
             android:id="@+id/allBudgets"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/wallet_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/wallet_png" />
 
         <ImageView
             android:id="@+id/addBudgetButton"
@@ -79,140 +87,188 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/circle_button"
-            android:elevation="6dp"
-            android:src="@drawable/add_png"
             android:clickable="true"
-            android:focusable="true"/>
+            android:elevation="6dp"
+            android:focusable="true"
+            android:src="@drawable/add_png" />
 
         <ImageView
             android:id="@+id/transactionHistory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/clock_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/clock_png" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/reward_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/reward_png" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         android:text="Description"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="86dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
     <TextView
         android:id="@+id/textView32"
-        android:layout_width="302dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="11dp"
         android:background="@drawable/square_button"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="Airplane ticket to Mauritius"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="117dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
         android:text="Start and End Date of transaction"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="176dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <TextView
         android:id="@+id/textView34"
-        android:layout_width="147dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/square_button"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="7 April 2025"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="206dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView25"
+        app:layout_constraintEnd_toStartOf="@+id/textView25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView25" />
 
     <TextView
         android:id="@+id/textView25"
-        android:layout_width="144dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/square_button"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="8 April 2025"
-        tools:layout_editor_absoluteX="208dp"
-        tools:layout_editor_absoluteY="206dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
     <TextView
         android:id="@+id/textView35"
-        android:layout_width="302dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="9dp"
         android:background="@drawable/square_button"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="R 12 000"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="287dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView37"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
         android:text="Amount Paid"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="261dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView35"
+        app:layout_constraintEnd_toEndOf="@+id/textView34"
+        app:layout_constraintStart_toEndOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
         android:text="Categroy"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="344dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView38"
+        app:layout_constraintEnd_toEndOf="@+id/textView38"
+        app:layout_constraintStart_toStartOf="@+id/textView38"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Transaction Receipt"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="432dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
     <TextView
         android:id="@+id/textView38"
-        android:layout_width="302dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="14dp"
         android:background="@drawable/square_button"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="Travel"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="370dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView27"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="310dp"
-        android:layout_height="150dp"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="461dp"
+        android:layout_width="320dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/goBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="318dp"
-        android:layout_height="56dp"
-        android:text="Go Back"
+        android:id="@+id/goBack"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="57dp"
         android:backgroundTint="@color/primary_dark_green"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="652dp" />
+        android:text="Go Back"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>
