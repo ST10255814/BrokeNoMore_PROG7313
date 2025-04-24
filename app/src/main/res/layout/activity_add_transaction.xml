@@ -12,12 +12,12 @@
         android:id="@+id/topBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/menuIcon"
@@ -50,10 +50,10 @@
         android:id="@+id/scrollContent"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/topBar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/scrollInner"
@@ -65,51 +65,67 @@
                 android:id="@+id/sampleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="96dp"
                 android:text="Add a Transaction"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/textView26"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:layout_width="239dp"
-                android:layout_height="59dp"
+                android:id="@+id/textView26"
+                android:layout_width="251dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="32dp"
                 android:text="Please ensure that all the details that are entered are accurate as no changes are permitted after"
                 android:textColor="@color/black"
                 android:textStyle="italic"
-                tools:layout_editor_absoluteX="66dp"
-                tools:layout_editor_absoluteY="36dp"/>
+                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="Transaction Description"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                tools:layout_editor_absoluteX="3dp"
-                tools:layout_editor_absoluteY="130dp" />
+                app:layout_constraintBottom_toTopOf="@+id/transactionDescriptionEditTxt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/transactionDescriptionEditTxt"
                 android:layout_width="363dp"
                 android:layout_height="45dp"
                 android:ems="10"
-                android:inputType="text"
                 android:hint="Description"
-                tools:layout_editor_absoluteX="2dp"
-                tools:layout_editor_absoluteY="163dp" />
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/textView7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.935" />
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="203dp"
+                android:layout_height="20dp"
                 android:text="Start Date for Transaction"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                tools:layout_editor_absoluteX="3dp"
-                tools:layout_editor_absoluteY="235dp" />
+                app:layout_constraintBottom_toTopOf="@+id/transactionEndDateInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.946" />
 
             <EditText
                 android:id="@+id/transactionStartDateInput"
@@ -118,8 +134,12 @@
                 android:ems="10"
                 android:hint="23 Apr 2024"
                 android:inputType="datetime"
-                tools:layout_editor_absoluteX="-2dp"
-                tools:layout_editor_absoluteY="358dp" />
+                app:layout_constraintBottom_toTopOf="@+id/transactionAmountEditTxt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionEndDateInput"
+                app:layout_constraintVertical_bias="0.171" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -128,18 +148,25 @@
                 android:text="End Date for Transaction"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                tools:layout_editor_absoluteX="3dp"
-                tools:layout_editor_absoluteY="326dp" />
+                app:layout_constraintBottom_toTopOf="@+id/transactionStartDateInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionEndDateInput"
+                app:layout_constraintVertical_bias="1.0" />
 
             <EditText
                 android:id="@+id/transactionEndDateInput"
                 android:layout_width="363dp"
                 android:layout_height="45dp"
+                android:layout_marginTop="276dp"
                 android:ems="10"
                 android:hint="23 Apr 2024"
                 android:inputType="datetime"
-                tools:layout_editor_absoluteX="2dp"
-                tools:layout_editor_absoluteY="265dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -148,15 +175,21 @@
                 android:text="Category"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="419dp" />
+                app:layout_constraintBottom_toTopOf="@+id/categoryTransactionSpinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionStartDateInput" />
 
             <Spinner
                 android:id="@+id/categoryTransactionSpinner"
                 android:layout_width="361dp"
                 android:layout_height="46dp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="451dp" />
+                app:layout_constraintBottom_toTopOf="@+id/transactionAmountEditTxt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionStartDateInput" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -165,8 +198,11 @@
                 android:text="Amount"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                tools:layout_editor_absoluteX="-2dp"
-                tools:layout_editor_absoluteY="513dp" />
+                app:layout_constraintBottom_toTopOf="@+id/transactionAmountEditTxt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categoryTransactionSpinner" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -175,8 +211,12 @@
                 android:text="Receipt or proof of transaction (optional)"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                tools:layout_editor_absoluteX="-3dp"
-                tools:layout_editor_absoluteY="592dp" />
+                app:layout_constraintBottom_toTopOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionEndDateInput"
+                app:layout_constraintVertical_bias="0.972" />
 
             <EditText
                 android:id="@+id/transactionAmountEditTxt"
@@ -184,24 +224,47 @@
                 android:layout_height="39dp"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                tools:layout_editor_absoluteX="-3dp"
-                tools:layout_editor_absoluteY="545dp" />
+                app:layout_constraintBottom_toTopOf="@+id/textView21"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionEndDateInput"
+                app:layout_constraintVertical_bias="0.896" />
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="388dp"
                 android:layout_height="240dp"
-                app:srcCompat="@drawable/add_png"
-                tools:layout_editor_absoluteX="-7dp"
-                tools:layout_editor_absoluteY="630dp" />
+                app:layout_constraintBottom_toTopOf="@+id/Upload_Receipt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionEndDateInput"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/add_png" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/Upload_Receipt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
-                tools:layout_editor_absoluteX="151dp"
-                tools:layout_editor_absoluteY="2167dp" />
+                android:layout_marginBottom="28dp"
+                android:backgroundTint="#28BF9C"
+                android:text="Upload Receipt"
+                app:layout_constraintBottom_toTopOf="@+id/submit_Transaction"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/submit_Transaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#28BF9C"
+                android:text="Submit transaction"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -212,26 +275,26 @@
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:background="@color/primary_dark_green"
+        android:gravity="center"
+        android:orientation="horizontal"
         android:weightSum="5"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:src="@drawable/home_png" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:src="@drawable/wallet_png" />
 
         <ImageView
@@ -247,15 +310,15 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:src="@drawable/clock_png" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:src="@drawable/reward_png" />
     </LinearLayout>
 
