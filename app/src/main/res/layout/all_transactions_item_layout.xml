@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginHorizontal="10dp"
     android:layout_marginVertical="10dp"
     app:cardCornerRadius="20dp"
-    android:elevation="8dp">
+    android:elevation="8dp"
+    android:clickable="true"
+    android:focusable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,7 +17,7 @@
         android:background="@color/off_white">
 
         <TextView
-            android:id="@+id/transactionDateTxt"
+            android:id="@+id/transactionLogDateTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="26 Apr"
@@ -23,18 +25,23 @@
             android:textStyle="bold"
             android:textSize="16sp"
             android:padding="10dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
             android:layout_marginStart="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/transactionDescriptionTxt"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            />
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/category_transaction_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_camera"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/transactionLogDateTxt"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
-            android:id="@+id/transactionDescriptionTxt"
+            android:id="@+id/transactionLogDescriptionTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Food"
@@ -43,20 +50,20 @@
             android:textColor="@color/black"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toEndOf="@id/transactionDateTxt"
-            app:layout_constraintEnd_toStartOf="@id/transactionAmountTxt"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:maxLines="1"
-            android:ellipsize="end" />
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/category_transaction_icon"
+            app:layout_constraintEnd_toStartOf="@id/transactionLogAmountTxt"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
-            android:id="@+id/transactionAmountTxt"
+            android:id="@+id/transactionLogAmountTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$1200 left of $3000"
+            android:text="-$3000"
             android:textSize="14sp"
-            android:textColor="@color/black"
+            android:textColor="@color/red"
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

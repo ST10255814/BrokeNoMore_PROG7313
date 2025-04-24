@@ -12,4 +12,6 @@
     <color name="accent_yellow">#FFB400</color>
     <color name="accent_green">#00E676</color>
     <color name="splashscreen">#0B2922</color>
+    <color name="off_white">#F5F5F5</color>
+    <color name="red">#fa3834</color>
 </resources>
