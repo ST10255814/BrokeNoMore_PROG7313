@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TransactionLogAdapterClass (private val dataList:ArrayList<TransactionLogDataClass>):
+class TransactionLogAdapterClass (private val dataList:ArrayList<TransactionLogDataClass>, private val onItemClick: (TransactionLogDataClass) -> Unit):
     RecyclerView.Adapter<TransactionLogAdapterClass.ViewHolderClass>() {
 
     class ViewHolderClass(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -32,5 +32,9 @@ class TransactionLogAdapterClass (private val dataList:ArrayList<TransactionLogD
         holder.rvCategoryImage.setImageResource(currentItems.categoryLogImage)
         holder.rvTransactionLogDescription.text = currentItems.transactionLogDescription
         holder.rvTransactionLogAmount.text = currentItems.transactionLogAmount
+
+        holder.itemView.setOnClickListener {
+            onItemClick(currentItems)
+        }
     }
 }

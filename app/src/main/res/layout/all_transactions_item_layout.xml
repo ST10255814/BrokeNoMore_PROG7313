@@ -8,6 +8,7 @@
     android:layout_marginVertical="10dp"
     app:cardCornerRadius="20dp"
     android:elevation="8dp"
+    android:id="@+id/viewTransactionDetails"
     android:clickable="true"
     android:focusable="true">
 

@@ -73,6 +73,14 @@ class TransactionManagement : AppCompatActivity() {
         binding.allTransactionsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.allTransactionsRecyclerView.setHasFixedSize(true)
 
+        transactionLogExpensesDataList = arrayListOf<TransactionLogDataClass>()
+
+        val adapter = TransactionLogAdapterClass(transactionLogExpensesDataList) { clickedItem ->
+            val intent = Intent(this, View_transaction::class.java)
+            startActivity(intent)
+        }
+        binding.allTransactionsRecyclerView.adapter = adapter
+
         getTransactionsLogExpensesData()
 
         binding.addBudgetButton.setOnClickListener {
@@ -109,7 +117,6 @@ class TransactionManagement : AppCompatActivity() {
             val dataClass = TransactionLogDataClass(dateLogList[i], categoryImageList[i], transactionDescriptionLogList[i], amountLogList[i])
             transactionLogExpensesDataList.add(dataClass)
         }
-        binding.allTransactionsRecyclerView.adapter = TransactionLogAdapterClass(transactionLogExpensesDataList)
     }
 
     private fun generateDateList() {

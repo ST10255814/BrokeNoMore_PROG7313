@@ -113,6 +113,18 @@ class HomeScreen : AppCompatActivity() {
         categoryExpenseDataList = arrayListOf<CategoryExpensesDataClass>()
         transactionExpensesDataList = arrayListOf<TransactionExpenseDataClass>()
 
+        val adapterCategory = CategoryExpensesAdapterClass(categoryExpenseDataList) { clickedItem ->
+            val intent = Intent(this, AllBudgets::class.java)
+            startActivity(intent)
+        }
+
+        val adapterTransaction = TransactionExpenseAdapterClass(transactionExpensesDataList) { clickedItem ->
+            val intent = Intent(this, TransactionManagement::class.java)
+            startActivity(intent)
+        }
+        binding.budgetView.adapter = adapterCategory
+        binding.transactionView.adapter = adapterTransaction
+
         getCategoryExpensesData()
         getTransactionsExpensesData()
 
@@ -122,12 +134,12 @@ class HomeScreen : AppCompatActivity() {
         }
 
         binding.transactionHistory.setOnClickListener{
-            val intent = Intent(this, ActivityTransactionsBinding::class.java)
+            val intent = Intent(this, TransactionManagement::class.java)
             startActivity(intent)
         }
 
         binding.home.setOnClickListener{
-            val intent = Intent(this, ActivityHomeScreenBinding::class.java)
+            val intent = Intent(this, HomeScreen::class.java)
             startActivity(intent)
         }
 
@@ -144,7 +156,6 @@ class HomeScreen : AppCompatActivity() {
             val dataClass = CategoryExpensesDataClass(imageList[i], categoryList[i], amountList[i])
             categoryExpenseDataList.add(dataClass)
         }
-        binding.budgetView.adapter = CategoryExpensesAdapterClass(categoryExpenseDataList)
     }
 
     private fun getTransactionsExpensesData(){
@@ -152,7 +163,6 @@ class HomeScreen : AppCompatActivity() {
             val dataClass = TransactionExpenseDataClass(dateList[i], transactionList[i], transactionAmountList[i])
             transactionExpensesDataList.add(dataClass)
         }
-        binding.transactionView.adapter = TransactionExpenseAdapterClass(transactionExpensesDataList)
     }
 
     private fun generateDateList() {

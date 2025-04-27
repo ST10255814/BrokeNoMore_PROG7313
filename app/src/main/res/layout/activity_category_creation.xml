@@ -48,10 +48,12 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="159dp"
-        android:layout_height="36dp"
+        android:layout_width="214dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="40dp"
         android:text="Create a new Category"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="7dp"
         android:text="Category Name"
         app:layout_constraintBottom_toTopOf="@+id/categoryNameTxt"
         app:layout_constraintStart_toStartOf="@+id/categoryNameTxt"
@@ -70,15 +72,15 @@
 
     <EditText
         android:id="@+id/categoryNameTxt"
-        android:layout_width="356dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="27dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
         android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Category Name"
         android:background="@drawable/square_button"
+        android:ems="10"
+        android:hint="Category Name"
+        android:inputType="text"
         android:paddingLeft="15dp"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,34 +118,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="74dp"
         android:text="Category Preview"
-        app:layout_constraintBottom_toTopOf="@+id/category_icon_custom"
+        app:layout_constraintBottom_toTopOf="@+id/categoryNamePreviewTxt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categoryIconUploadBtn" />
 
     <ImageView
         android:id="@+id/category_icon_custom"
-        android:layout_width="148dp"
+        android:layout_width="0dp"
         android:layout_height="109dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="31dp"
         android:layout_marginBottom="63dp"
         app:layout_constraintBottom_toTopOf="@+id/createCategoryBtn"
         app:layout_constraintEnd_toStartOf="@+id/categoryNamePreviewTxt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/categoryNamePreviewTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="145dp"
-        android:layout_marginBottom="54dp"
-        android:text="Medical"
-        app:layout_constraintBottom_toBottomOf="@+id/category_icon_custom"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="109dp"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/createCategoryBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/category_icon_custom" />
+        app:layout_constraintStart_toEndOf="@+id/category_icon_custom"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <Button
         android:id="@+id/createCategoryBtn"
@@ -158,7 +163,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_icon_custom" />
+        app:layout_constraintTop_toBottomOf="@+id/categoryNamePreviewTxt" />
 
     <LinearLayout
         android:id="@+id/bottomNav"
@@ -177,21 +182,21 @@
             android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/home_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/home_png" />
 
         <ImageView
             android:id="@+id/allBudgets"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/wallet_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/wallet_png" />
 
         <ImageView
             android:id="@+id/addBudgetButton"
@@ -200,29 +205,29 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/circle_button"
-            android:elevation="6dp"
-            android:src="@drawable/add_png"
             android:clickable="true"
-            android:focusable="true"/>
+            android:elevation="6dp"
+            android:focusable="true"
+            android:src="@drawable/add_png" />
 
         <ImageView
             android:id="@+id/transactionHistory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/clock_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/clock_png" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/reward_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/reward_png" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

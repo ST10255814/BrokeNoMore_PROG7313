@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CategoryExpensesAdapterClass(private val dataList:ArrayList<CategoryExpensesDataClass>):
+class CategoryExpensesAdapterClass(private val dataList:ArrayList<CategoryExpensesDataClass>, private val onItemClick: (CategoryExpensesDataClass) -> Unit):
 RecyclerView.Adapter<CategoryExpensesAdapterClass.ViewHolderClass>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
@@ -24,6 +24,10 @@ RecyclerView.Adapter<CategoryExpensesAdapterClass.ViewHolderClass>(){
         holder.rvImageView.setImageResource(currentItems.categoryImage)
         holder.rvCategoryName.text = currentItems.categoryName
         holder.rvAmount.text = currentItems.amount
+
+        holder.itemView.setOnClickListener {
+            onItemClick(currentItems)
+        }
     }
 
     class ViewHolderClass(itemView: View): RecyclerView.ViewHolder(itemView){

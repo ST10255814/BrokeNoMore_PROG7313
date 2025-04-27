@@ -11,9 +11,11 @@
         android:id="@+id/topBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,7 +24,7 @@
             android:id="@+id/logout"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/app_settings"  />
+            android:src="@drawable/app_settings" />
 
         <TextView
             android:id="@+id/pageTitle"
@@ -48,122 +50,121 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="9dp"
         android:text="Add new budget"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="17dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
         app:layout_constraintEnd_toStartOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBar"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:srcCompat="@drawable/budget_temp_icon" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="95dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="253dp"
+        android:layout_width="74dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="230dp"
+        android:layout_marginBottom="58dp"
         android:text="General Info"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/budgetNameTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/imageView8" />
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="121dp"
-        android:layout_marginBottom="121dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="11dp"
         android:text="Budget name"
-        app:layout_constraintBottom_toTopOf="@+id/minAmountTxt"
+        app:layout_constraintBottom_toTopOf="@+id/budgetNameTxt"
         app:layout_constraintStart_toStartOf="@+id/budgetNameTxt"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <EditText
         android:id="@+id/budgetNameTxt"
-        android:layout_width="336dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="40dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="9dp"
         android:background="@drawable/square_button"
         android:ems="10"
         android:hint="Name"
         android:inputType="text"
         android:paddingLeft="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView16"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="311dp"
-        android:layout_marginBottom="311dp"
+        android:layout_marginBottom="15dp"
         android:text="Min Amount"
-        app:layout_constraintBottom_toTopOf="@+id/createCategoryNavBtn"
-        app:layout_constraintStart_toStartOf="@+id/minAmountTxt"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/minAmountTxt"
+        app:layout_constraintStart_toStartOf="@+id/budgetNameTxt"
+        app:layout_constraintTop_toBottomOf="@+id/budgetNameTxt" />
 
     <EditText
         android:id="@+id/minAmountTxt"
-        android:layout_width="331dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="39dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/square_button"
         android:ems="10"
-        android:hint="E.G R 1000"
+        android:hint="1000"
         android:inputType="numberDecimal"
         android:paddingLeft="15dp"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+        app:layout_constraintBottom_toTopOf="@+id/textView17"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="11dp"
         android:text="Max Amount"
-        app:layout_constraintBottom_toTopOf="@+id/textView18"
-        app:layout_constraintStart_toStartOf="@+id/maxAmountTxt" />
+        app:layout_constraintBottom_toTopOf="@+id/maxAmountTxt"
+        app:layout_constraintStart_toStartOf="@+id/maxAmountTxt"
+        app:layout_constraintTop_toBottomOf="@+id/minAmountTxt" />
 
     <EditText
         android:id="@+id/maxAmountTxt"
-        android:layout_width="331dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="11dp"
         android:background="@drawable/square_button"
         android:ems="10"
-        android:hint="E.G R 15 000"
+        android:hint="15 000"
         android:inputType="numberDecimal"
         android:paddingLeft="15dp"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintBottom_toTopOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
@@ -172,103 +173,110 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="187dp"
         android:text="Budget filter"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-        app:layout_constraintStart_toEndOf="@+id/imageView9" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginBottom="296dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/maxAmountTxt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        app:layout_constraintEnd_toStartOf="@+id/textView18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxAmountTxt"
         app:srcCompat="@drawable/budget_temp_icon" />
+
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginBottom="9dp"
         android:text="Budgeted for"
-        app:layout_constraintEnd_toStartOf="@+id/textView18"
-        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintBottom_toTopOf="@+id/categorySpinner"
+        app:layout_constraintStart_toStartOf="@+id/categorySpinner"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
-
     <Spinner
-        android:id="@+id/budgetSpinner"
-        android:layout_width="328dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginBottom="29dp"
-        app:layout_constraintBottom_toBottomOf="@+id/createCategoryNavBtn"
+        android:id="@+id/categorySpinner"
+        android:background="@drawable/spinner_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/createCategoryNavBtn"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <TextView
         android:id="@+id/createCategoryNavBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="169dp"
-        android:text="Create a new category"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/budgetSpinner"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:text="Create a new category"
+        app:layout_constraintBottom_toTopOf="@+id/createBudgetBtn"
+        app:layout_constraintStart_toStartOf="@+id/categorySpinner"
+        app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
 
     <Button
         android:id="@+id/createBudgetBtn"
-        android:layout_width="324dp"
-        android:layout_height="52dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="104dp"
         android:layout_marginEnd="34dp"
-        android:layout_marginBottom="103dp"
+        android:layout_marginBottom="48dp"
         android:backgroundTint="#28BF9C"
         android:text="Create Budget"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/budgetSpinner"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/createCategoryNavBtn" />
 
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="393dp"
-        android:layout_height="0dp"
+        android:layout_width="391dp"
+        android:layout_height="60dp"
         android:background="@color/primary_dark_green"
         android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createBudgetBtn">
 
         <ImageView
             android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/home_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/home_png" />
 
         <ImageView
             android:id="@+id/allBudgets"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/wallet_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/wallet_png" />
 
         <ImageView
             android:id="@+id/addBudgetButton"
@@ -277,28 +285,28 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/circle_button"
-            android:elevation="6dp"
-            android:src="@drawable/add_png"
             android:clickable="true"
-            android:focusable="true"/>
+            android:elevation="6dp"
+            android:focusable="true"
+            android:src="@drawable/add_png" />
 
         <ImageView
             android:id="@+id/transactionHistory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/clock_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/clock_png" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/reward_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/reward_png" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

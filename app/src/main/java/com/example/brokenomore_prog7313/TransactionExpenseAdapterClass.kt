@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TransactionExpenseAdapterClass (private val dataList:ArrayList<TransactionExpenseDataClass>):
+class TransactionExpenseAdapterClass (private val dataList:ArrayList<TransactionExpenseDataClass>, private val onItemClick: (TransactionExpenseDataClass) -> Unit):
     RecyclerView.Adapter<TransactionExpenseAdapterClass.ViewHolderClass>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
@@ -23,6 +23,10 @@ class TransactionExpenseAdapterClass (private val dataList:ArrayList<Transaction
         holder.rvDate.text = currentItems.transactionDate
         holder.rvTransactionDescription.text = currentItems.transactionDescription
         holder.rvTransactionAmount.text = currentItems.transactionAmount
+
+        holder.itemView.setOnClickListener {
+            onItemClick(currentItems)
+        }
     }
 
     class ViewHolderClass(itemView: View): RecyclerView.ViewHolder(itemView) {
