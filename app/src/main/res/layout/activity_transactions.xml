@@ -13,11 +13,12 @@
         android:id="@+id/topBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="28dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/budgetCard"
+        app:layout_constraintBottom_toTopOf="@+id/textView22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,7 +27,7 @@
             android:id="@+id/logout"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/app_settings"  />
+            android:src="@drawable/app_settings" />
 
         <TextView
             android:id="@+id/pageTitle"
@@ -51,17 +52,19 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/budgetCard"
-        android:layout_width="342dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
         app:cardCornerRadius="24dp"
         app:cardElevation="10dp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toTopOf="@+id/addTransactions"
+        app:layout_constraintBottom_toBottomOf="@+id/addTransactions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBar">
+        app:layout_constraintTop_toTopOf="@+id/textView22">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -76,16 +79,6 @@
 
             <!-- Right Arrow -->
 
-            <ImageView
-                android:id="@+id/leftArrow"
-                android:layout_width="12dp"
-                android:layout_height="10dp"
-                android:layout_marginStart="72dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
-
             <!-- "This month" Text -->
 
             <!-- Total Income -->
@@ -95,14 +88,26 @@
             <!-- Available Balance -->
 
             <ImageView
-                android:id="@+id/leftArrow2"
+                android:id="@+id/leftArrow"
                 android:layout_width="15dp"
-                android:layout_height="12dp"
-                android:layout_marginStart="192dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/arrow_back"
+                app:layout_constraintBottom_toBottomOf="@+id/monthText"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/leftArrow2"
+                android:layout_width="17dp"
+                android:layout_height="15dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/arrow_forward"
+                app:layout_constraintBottom_toBottomOf="@+id/monthText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/monthText"
@@ -110,86 +115,37 @@
                 android:layout_height="28dp"
                 android:gravity="center"
                 android:text="This month"
+                android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.489"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Total Income"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/monthText"
-                app:layout_constraintHorizontal_bias="0.736"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/leftArrow2"
+                app:layout_constraintStart_toEndOf="@+id/leftArrow"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="R 50 000"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView21"
-                app:layout_constraintHorizontal_bias="0.432"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/totalExpensesTextDisplay"
+                android:layout_width="197dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="9dp"
                 android:gravity="center"
-                android:text="Availible balance"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/monthText"
-                app:layout_constraintVertical_bias="0.55" />
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="R 28 250"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
                 android:text="R 23 750"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.648"
-                app:layout_constraintStart_toEndOf="@+id/textView21"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="91dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="Total Expenses"
+                android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/monthText"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/monthText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -199,23 +155,23 @@
         android:id="@+id/addTransactions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="9dp"
+        android:clickable="true"
+        android:focusable="true"
         android:text="Add a transaction"
         android:textColor="@color/primary_dark_green"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/allTransactionsRecyclerView"
         app:layout_constraintStart_toStartOf="@+id/budgetCard"
-        app:layout_constraintTop_toBottomOf="@+id/budgetCard"
-        android:clickable="true"
-        android:focusable="true"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/allTransactionsRecyclerView"
-        android:layout_width="355dp"
-        android:layout_height="444dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="18dp"
+        android:layout_width="360dp"
+        android:layout_height="438dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="19dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -223,15 +179,15 @@
 
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="393dp"
-        android:layout_height="61dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
         android:background="@color/primary_dark_green"
         android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/allTransactionsRecyclerView">
 
@@ -239,21 +195,21 @@
             android:id="@+id/home"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/home_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/home_png" />
 
         <ImageView
-            android:id="@+id/allBudgets"
+            android:id="@+id/walletTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/wallet_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/wallet_png" />
 
         <ImageView
             android:id="@+id/addBudgetButton"
@@ -262,39 +218,41 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/circle_button"
-            android:elevation="6dp"
-            android:src="@drawable/add_png"
             android:clickable="true"
-            android:focusable="true"/>
+            android:elevation="6dp"
+            android:focusable="true"
+            android:src="@drawable/add_png" />
 
         <ImageView
             android:id="@+id/transactionHistory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/clock_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/clock_png" />
 
         <ImageView
+            android:id="@+id/gamificationTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/reward_png"
+            android:layout_weight="1"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:src="@drawable/reward_png" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginBottom="149dp"
         android:text="Transaction History"
         android:textSize="22dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/addTransactions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBar" />

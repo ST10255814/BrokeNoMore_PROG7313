@@ -31,9 +31,6 @@
             android:name=".TransactionManagement"
             android:exported="false" />
         <activity
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
             android:name=".HomeScreen"
             android:exported="false" />
         <activity
@@ -56,6 +53,8 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
+
 
 </manifest>

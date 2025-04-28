@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:srcCompat="@drawable/budget_temp_icon" />
+        app:srcCompat="@drawable/money_icon" />
 
     <TextView
         android:id="@+id/textView14"
@@ -85,7 +85,8 @@
         app:layout_constraintBottom_toTopOf="@+id/budgetNameTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
+        app:layout_constraintTop_toTopOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView15"
@@ -173,7 +174,7 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="187dp"
         android:text="Budget filter"
         android:textSize="20sp"
@@ -193,7 +194,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textView18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/maxAmountTxt"
-        app:srcCompat="@drawable/budget_temp_icon" />
+        app:srcCompat="@drawable/filter_icon" />
 
 
     <TextView
@@ -226,6 +227,7 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:focusable="true"
+        android:textColor="@color/primary_dark_green"
         android:text="Create a new category"
         app:layout_constraintBottom_toTopOf="@+id/createBudgetBtn"
         app:layout_constraintStart_toStartOf="@+id/categorySpinner"
@@ -269,7 +271,7 @@
             android:src="@drawable/home_png" />
 
         <ImageView
-            android:id="@+id/allBudgets"
+            android:id="@+id/walletTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -301,6 +303,7 @@
             android:src="@drawable/clock_png" />
 
         <ImageView
+            android:id="@+id/gamificationTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

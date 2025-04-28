@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
+        finish()
         enableEdgeToEdge()
     }
 }

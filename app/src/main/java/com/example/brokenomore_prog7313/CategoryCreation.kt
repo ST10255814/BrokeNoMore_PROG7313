@@ -36,16 +36,27 @@ class CategoryCreation : AppCompatActivity() {
         binding.addBudgetButton.setOnClickListener {
             val intent = Intent(this, BudgetManagement::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.transactionHistory.setOnClickListener{
             val intent = Intent(this, TransactionManagement::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.home.setOnClickListener{
             val intent = Intent(this, HomeScreen::class.java)
             startActivity(intent)
+            finish()
+        }
+
+        binding.gamificationTab.setOnClickListener {
+            Toast.makeText(this, "Coming Soon!", Toast.LENGTH_LONG).show()
+        }
+
+        binding.walletTab.setOnClickListener {
+            Toast.makeText(this, "Coming Soon!", Toast.LENGTH_LONG).show()
         }
 
         binding.logout.setOnClickListener{

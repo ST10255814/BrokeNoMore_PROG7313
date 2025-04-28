@@ -77,20 +77,25 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:layout_width="112dp"
+                android:id="@+id/minAmountTextDisplay"
+                android:layout_width="263dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
+                android:text="R21 456 left"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="R21 456 left"/>
+                android:gravity="center"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/maxAmountTextDisplay"
+                android:layout_width="252dp"
                 android:layout_height="wrap_content"
                 android:text="out of R50 000 budgeted"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:gravity="center"
+                />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -215,7 +220,7 @@
             android:focusable="true"/>
 
         <ImageView
-            android:id="@+id/allBudgets"
+            android:id="@+id/walletTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -247,6 +252,7 @@
             android:focusable="true"/>
 
         <ImageView
+            android:id="@+id/gamificationTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

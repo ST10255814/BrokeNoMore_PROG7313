@@ -1,34 +1,33 @@
 package com.example.brokenomore_prog7313
 
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.example.brokenomore_prog7313.databinding.ActivityHomeScreenBinding
-import com.example.brokenomore_prog7313.databinding.ActivityTransactionsBinding
 import com.google.firebase.auth.FirebaseAuth
-import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Date
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class HomeScreen : AppCompatActivity() {
     private lateinit var binding: ActivityHomeScreenBinding
     private lateinit var auth : FirebaseAuth
-    private lateinit var categoryExpenseDataList: ArrayList<CategoryExpensesDataClass>
-    private lateinit var transactionExpensesDataList: ArrayList<TransactionExpenseDataClass>
-    lateinit var imageList: Array<Int>
-    lateinit var dateList: Array<String>
-    lateinit var categoryList: Array<String>
-    lateinit var transactionList: Array<String>
-    lateinit var amountList: Array<String>
-    lateinit var transactionAmountList: Array<String>
+    private lateinit var firebaseTransactionRef: DatabaseReference
+    private lateinit var firebaseBudgetRef: DatabaseReference
+    private lateinit var firebaseCategoriesRef: DatabaseReference
+    private lateinit var transactionRecyclerView : RecyclerView
+    private lateinit var budgetRecylerView : RecyclerView
+    private lateinit var transactionArrayList : ArrayList<TransactionDataClass>
+    private lateinit var categoryArrayList: ArrayList<CategoryDatabaseData>
+    private lateinit var budgetArrayList : ArrayList<BudgetDataClass>
+    private lateinit var budgetDisplayArrayList : ArrayList<BudgetDisplayData>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,141 +37,167 @@ class HomeScreen : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         setContentView(binding.root)
 
-        imageList = arrayOf(
-            R.drawable.ic_list,
-            R.drawable.ic_checkbox,
-            R.drawable.ic_image,
-            R.drawable.ic_toggle,
-            R.drawable.ic_date,
-            R.drawable.ic_rating,
-            R.drawable.ic_time,
-            R.drawable.ic_text,
-            R.drawable.ic_edit,
-            R.drawable.ic_camera)
-
-        categoryList = arrayOf(
-            "Food",
-            "Utilities",
-            "Travel",
-            "Shopping",
-            "Rent",
-            "Going Out",
-            "Car",
-            "Savings",
-            "Activities",
-            "Wedding")
-
-        amountList = arrayOf(
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87"
-        )
-
-        dateList = Array(10) { "" }
-
-        generateDateList()
-
-        transactionList = arrayOf(
-            "Food",
-            "Utilities",
-            "Travel",
-            "Shopping",
-            "Rent",
-            "Going Out",
-            "Car",
-            "Savings",
-            "Activities",
-            "Wedding")
-
-        transactionAmountList = arrayOf(
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87"
-        )
-
-        binding.budgetView.layoutManager = LinearLayoutManager(this)
-        binding.budgetView.setHasFixedSize(true)
-
-        binding.transactionView.layoutManager = LinearLayoutManager(this)
-        binding.transactionView.setHasFixedSize(true)
-
-        categoryExpenseDataList = arrayListOf<CategoryExpensesDataClass>()
-        transactionExpensesDataList = arrayListOf<TransactionExpenseDataClass>()
-
-        val adapterCategory = CategoryExpensesAdapterClass(categoryExpenseDataList) { clickedItem ->
-            val intent = Intent(this, AllBudgets::class.java)
-            startActivity(intent)
-        }
-
-        val adapterTransaction = TransactionExpenseAdapterClass(transactionExpensesDataList) { clickedItem ->
-            val intent = Intent(this, TransactionManagement::class.java)
-            startActivity(intent)
-        }
-        binding.budgetView.adapter = adapterCategory
-        binding.transactionView.adapter = adapterTransaction
-
-        getCategoryExpensesData()
-        getTransactionsExpensesData()
-
         binding.addBudgetButton.setOnClickListener {
             val intent = Intent(this, BudgetManagement::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.transactionHistory.setOnClickListener{
             val intent = Intent(this, TransactionManagement::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.home.setOnClickListener{
             val intent = Intent(this, HomeScreen::class.java)
             startActivity(intent)
+            finish()
+        }
+
+        binding.gamificationTab.setOnClickListener {
+            Toast.makeText(this, "Coming Soon!", Toast.LENGTH_LONG).show()
+        }
+
+        binding.walletTab.setOnClickListener {
+            Toast.makeText(this, "Coming Soon!", Toast.LENGTH_LONG).show()
         }
 
         binding.logOut.setOnClickListener{
             auth.signOut()
-            var intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
             Toast.makeText(this, "User logged out successfully", Toast.LENGTH_LONG).show()
         }
+
+        transactionRecyclerView = binding.transactionView
+        transactionRecyclerView.layoutManager = LinearLayoutManager(this)
+        transactionRecyclerView.setHasFixedSize(true)
+
+        transactionArrayList = arrayListOf<TransactionDataClass>()
+        getTransactionData()
+
+        budgetRecylerView = binding.budgetView
+        budgetRecylerView.layoutManager = LinearLayoutManager(this)
+        budgetRecylerView.setHasFixedSize(true)
+
+        budgetDisplayArrayList = arrayListOf<BudgetDisplayData>()
+        categoryArrayList = arrayListOf<CategoryDatabaseData>()
+        budgetArrayList = arrayListOf<BudgetDataClass>()
+        combineBudgetAndCategoryDataForDisplay()
     }
-    private fun getCategoryExpensesData(){
-        for(i in imageList.indices){
-            val dataClass = CategoryExpensesDataClass(imageList[i], categoryList[i], amountList[i])
-            categoryExpenseDataList.add(dataClass)
+
+    private fun getTransactionData() {
+        firebaseTransactionRef = FirebaseDatabase.getInstance().getReference().child("Transactions")
+
+        firebaseTransactionRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                transactionArrayList.clear()
+                if(snapshot.exists()){
+                    for(transactionSnapshot in snapshot.children){
+                        val transaction = transactionSnapshot.getValue(TransactionDataClass::class.java)
+                        transactionArrayList.add(transaction!!)
+                    }
+                    transactionRecyclerView.adapter = TransactionAdapterClass(transactionArrayList) { transaction ->
+                        val intent = Intent(this@HomeScreen, TransactionManagement::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@HomeScreen, "Failed to load transactions: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun getBudgetData(onComplete: () -> Unit){
+        firebaseBudgetRef = FirebaseDatabase.getInstance().getReference().child("Budgets")
+
+        firebaseBudgetRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                budgetArrayList.clear()
+                if(snapshot.exists()){
+                    for(budgetSnapshot in snapshot.children){
+                        val budget = budgetSnapshot.getValue(BudgetDataClass::class.java)
+                        budgetArrayList.add(budget!!)
+                    }
+                }
+                onComplete()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@HomeScreen, "Failed to load categories: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun getCategoryData(onComplete: () -> Unit){
+        firebaseCategoriesRef = FirebaseDatabase.getInstance().getReference().child("AllCategories")
+
+        firebaseCategoriesRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                categoryArrayList.clear()
+                if(snapshot.exists()){
+                    for(categorySnapshot in snapshot.children){
+                        val category = categorySnapshot.getValue(CategoryDatabaseData::class.java)
+                        categoryArrayList.add(category!!)
+                    }
+                }
+                onComplete()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@HomeScreen, "Failed to load categories: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun combineBudgetAndCategoryDataForDisplay() {
+        budgetDisplayArrayList.clear()
+
+        getCategoryData {
+            getBudgetData {
+                for (budget in budgetArrayList) {
+                    val matchingCategory = categoryArrayList.find { it.categoryName == budget.category }
+                    val category64BaseIcon = matchingCategory?.categoryIcon ?: ""
+
+                    val budgetWithIcon = BudgetDisplayData(
+                        categoryImage = category64BaseIcon,
+                        budgetName = budget.budgetName,
+                        minAmount = budget.minAmount,
+                        maxAmount = budget.maxAmount
+                    )
+                    budgetDisplayArrayList.add(budgetWithIcon)
+                }
+
+                budgetRecylerView.adapter = BudgetAdapterClass(budgetDisplayArrayList) { transaction ->
+                    val intent = Intent(this@HomeScreen, TransactionManagement::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+                totalMinAndMaxBudgetAmount()
+            }
         }
     }
 
-    private fun getTransactionsExpensesData(){
-        for(i in dateList.indices){
-            val dataClass = TransactionExpenseDataClass(dateList[i], transactionList[i], transactionAmountList[i])
-            transactionExpensesDataList.add(dataClass)
-        }
-    }
+    private fun totalMinAndMaxBudgetAmount(){
+        var totalMin = 0.0
+        var totalMax = 0.0
 
-    private fun generateDateList() {
-        val calendar = Calendar.getInstance()
-        val dateFormat = SimpleDateFormat("dd MMM")  // Format: day and abbreviated month
-
-        for (i in dateList.indices) {
-            // Add i days to the current date
-            calendar.add(Calendar.DAY_OF_MONTH, i)
-            dateList[i] = dateFormat.format(calendar.time)  // Format the date and store as a string
+        for (budget in budgetDisplayArrayList) {
+            totalMin += budget.minAmount
+            totalMax += budget.maxAmount
         }
+        val finalAmountLeft = totalMax - totalMin
+
+        val totalMaxText = "out of R%.2f budgeted".format(totalMax)
+        val totalMinText = "R%.2f left".format(finalAmountLeft)
+
+        binding.maxAmountTextDisplay.text = totalMaxText
+        binding.minAmountTextDisplay.text = totalMinText
     }
 }

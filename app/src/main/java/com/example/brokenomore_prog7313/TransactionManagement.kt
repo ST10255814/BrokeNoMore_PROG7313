@@ -5,22 +5,25 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.brokenomore_prog7313.databinding.ActivityTransactionsBinding
 import com.google.firebase.auth.FirebaseAuth
-import java.text.SimpleDateFormat
-import java.util.Calendar
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class TransactionManagement : AppCompatActivity() {
     private lateinit var binding: ActivityTransactionsBinding
-    private lateinit var transactionLogExpensesDataList: ArrayList<TransactionLogDataClass>
-    lateinit var categoryImageList: Array<Int>
-    lateinit var dateLogList: Array<String>
-    lateinit var amountLogList: Array<String>
-    lateinit var transactionDescriptionLogList: Array<String>
+    private lateinit var transactionDisplayList: ArrayList<TransactionDisplayDataClass>
+    private lateinit var categoryArrayList: ArrayList<CategoryDatabaseData>
+    private lateinit var transactionArrayList : ArrayList<TransactionsLogs>
+    private lateinit var transactionRecyclerView : RecyclerView
     private lateinit var auth : FirebaseAuth
+    private lateinit var transactionDatabaseRef: DatabaseReference
+    private lateinit var firebaseCategoriesRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,78 +32,36 @@ class TransactionManagement : AppCompatActivity() {
         binding = ActivityTransactionsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        categoryImageList = arrayOf(
-            R.drawable.ic_list,
-            R.drawable.ic_checkbox,
-            R.drawable.ic_image,
-            R.drawable.ic_toggle,
-            R.drawable.ic_date,
-            R.drawable.ic_rating,
-            R.drawable.ic_time,
-            R.drawable.ic_text,
-            R.drawable.ic_edit,
-            R.drawable.ic_camera)
-
-        transactionDescriptionLogList = arrayOf(
-            "Food",
-            "Utilities",
-            "Travel",
-            "Shopping",
-            "Rent",
-            "Going Out",
-            "Car",
-            "Savings",
-            "Activities",
-            "Wedding")
-
-        amountLogList = arrayOf(
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87",
-            "R2003.00",
-            "R2120.87"
-        )
-
-        dateLogList = Array(10) { "" }
-
-        generateDateList()
-
-        binding.allTransactionsRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.allTransactionsRecyclerView.setHasFixedSize(true)
-
-        transactionLogExpensesDataList = arrayListOf<TransactionLogDataClass>()
-
-        val adapter = TransactionLogAdapterClass(transactionLogExpensesDataList) { clickedItem ->
-            val intent = Intent(this, View_transaction::class.java)
-            startActivity(intent)
-        }
-        binding.allTransactionsRecyclerView.adapter = adapter
-
-        getTransactionsLogExpensesData()
-
         binding.addBudgetButton.setOnClickListener {
             val intent = Intent(this, BudgetManagement::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.transactionHistory.setOnClickListener{
             val intent = Intent(this, TransactionManagement::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.addTransactions.setOnClickListener{
             val intent = Intent(this, AddTransaction::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.home.setOnClickListener{
             val intent = Intent(this, HomeScreen::class.java)
             startActivity(intent)
+            finish()
+        }
+
+        binding.gamificationTab.setOnClickListener {
+            Toast.makeText(this, "Coming Soon!", Toast.LENGTH_LONG).show()
+        }
+
+        binding.walletTab.setOnClickListener {
+            Toast.makeText(this, "Coming Soon!", Toast.LENGTH_LONG).show()
         }
 
         binding.logout.setOnClickListener{
@@ -110,23 +71,97 @@ class TransactionManagement : AppCompatActivity() {
             finish()
             Toast.makeText(this, "User logged out successfully", Toast.LENGTH_LONG).show()
         }
+
+        transactionRecyclerView = binding.allTransactionsRecyclerView
+        transactionRecyclerView.layoutManager = LinearLayoutManager(this)
+        transactionRecyclerView.setHasFixedSize(true)
+
+        transactionArrayList = arrayListOf<TransactionsLogs>()
+        categoryArrayList = arrayListOf<CategoryDatabaseData>()
+        transactionDisplayList = arrayListOf<TransactionDisplayDataClass>()
+
+        combineCategoryAndTransactionDataForDisplay()
     }
 
-    private fun getTransactionsLogExpensesData(){
-        for(i in dateLogList.indices){
-            val dataClass = TransactionLogDataClass(dateLogList[i], categoryImageList[i], transactionDescriptionLogList[i], amountLogList[i])
-            transactionLogExpensesDataList.add(dataClass)
+    private fun getCategoryData(onComplete: () -> Unit){
+        firebaseCategoriesRef = FirebaseDatabase.getInstance().getReference().child("AllCategories")
+
+        firebaseCategoriesRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                categoryArrayList.clear()
+                if(snapshot.exists()){
+                    for(categorySnapshot in snapshot.children){
+                        val category = categorySnapshot.getValue(CategoryDatabaseData::class.java)
+                        categoryArrayList.add(category!!)
+                    }
+                }
+                onComplete()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@TransactionManagement, "Failed to load categories: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+    private fun getTransactionData(onComplete: () -> Unit) {
+        transactionDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Transactions")
+
+        transactionDatabaseRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                transactionArrayList.clear()
+                if(snapshot.exists()){
+                    for(transactionSnapshot in snapshot.children){
+                        val transaction = transactionSnapshot.getValue(TransactionsLogs::class.java)
+                        transactionArrayList.add(transaction!!)
+                    }
+                }
+                onComplete()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@TransactionManagement, "Failed to load transactions: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+    private fun combineCategoryAndTransactionDataForDisplay() {
+        transactionDisplayList.clear()
+
+        getCategoryData {
+            getTransactionData {
+                for (transaction in transactionArrayList) {
+                    val matchingCategory = categoryArrayList.find { it.categoryName == transaction.category }
+                    val category64BaseIcon = matchingCategory?.categoryIcon ?: ""
+
+                    val transactionWithIcon = TransactionDisplayDataClass(
+                        transactionStartDate = transaction.startDate,
+                        transactionEndDate = transaction.endDate,
+                        categoryImage = category64BaseIcon,
+                        categoryName = transaction.category,
+                        transactionDescription = transaction.description,
+                        transactionAmount = transaction.amount,
+                        transactionReceipt = transaction.receipt
+                    )
+                    transactionDisplayList.add(transactionWithIcon)
+                }
+
+                transactionRecyclerView.adapter = TransactionLogAdapterClass(transactionDisplayList) { transaction ->
+                    val intent = Intent(this@TransactionManagement, View_transaction::class.java)
+                    intent.putExtra("transactions", transaction)
+                    startActivity(intent)
+                    finish()
+                }
+                displayTextInTransactionCard()
+            }
         }
     }
+    private fun displayTextInTransactionCard(){
+        var totalExpense = 0.0
 
-    private fun generateDateList() {
-        val calendar = Calendar.getInstance()
-        val dateFormat = SimpleDateFormat("dd MMM")  // Format: day and abbreviated month
-
-        for (i in dateLogList.indices) {
-            // Add i days to the current date
-            calendar.add(Calendar.DAY_OF_MONTH, i)
-            dateLogList[i] = dateFormat.format(calendar.time)  // Format the date and store as a string
+        for (transaction in transactionDisplayList) {
+            totalExpense += transaction.transactionAmount
         }
+        val totalMinText = "R%.2f".format(totalExpense)
+
+        binding.totalExpensesTextDisplay.text = totalMinText
     }
 }

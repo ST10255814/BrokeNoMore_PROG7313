@@ -36,6 +36,11 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
+        binding.goBackToLoginTxt.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun registerUser(email: String, password: String){

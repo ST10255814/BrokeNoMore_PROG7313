@@ -189,7 +189,7 @@
             android:src="@drawable/home_png" />
 
         <ImageView
-            android:id="@+id/allBudgets"
+            android:id="@+id/walletTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -221,6 +221,7 @@
             android:src="@drawable/clock_png" />
 
         <ImageView
+            android:id="@+id/gamificationTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

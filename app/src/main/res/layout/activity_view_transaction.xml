@@ -71,7 +71,7 @@
             android:src="@drawable/home_png" />
 
         <ImageView
-            android:id="@+id/allBudgets"
+            android:id="@+id/walletTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -103,6 +103,7 @@
             android:src="@drawable/clock_png" />
 
         <ImageView
+            android:id="@+id/gamificationTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -118,13 +119,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:text="Description"
-        app:layout_constraintBottom_toTopOf="@+id/textView32"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/descriptionTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="45dp"
@@ -145,13 +147,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="11dp"
         android:text="Start and End Date of transaction"
-        app:layout_constraintBottom_toTopOf="@+id/textView25"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/endTransactionTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/startDateTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="45dp"
@@ -160,13 +163,13 @@
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:text="7 April 2025"
-        app:layout_constraintBottom_toBottomOf="@+id/textView25"
-        app:layout_constraintEnd_toStartOf="@+id/textView25"
+        app:layout_constraintBottom_toBottomOf="@+id/endTransactionTextView"
+        app:layout_constraintEnd_toStartOf="@+id/endTransactionTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView25" />
+        app:layout_constraintTop_toTopOf="@+id/endTransactionTextView" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/endTransactionTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="41dp"
@@ -177,11 +180,11 @@
         android:text="8 April 2025"
         app:layout_constraintBottom_toTopOf="@+id/textView36"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView34"
+        app:layout_constraintStart_toEndOf="@+id/startDateTextView"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/transactionAmountTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="45dp"
@@ -202,10 +205,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
         android:text="Amount Paid"
-        app:layout_constraintBottom_toTopOf="@+id/textView35"
-        app:layout_constraintEnd_toEndOf="@+id/textView34"
-        app:layout_constraintStart_toEndOf="@+id/textView34"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/transactionAmountTextView"
+        app:layout_constraintEnd_toEndOf="@+id/startDateTextView"
+        app:layout_constraintStart_toEndOf="@+id/startDateTextView"
+        app:layout_constraintTop_toBottomOf="@+id/endTransactionTextView" />
 
     <TextView
         android:id="@+id/textView37"
@@ -213,10 +217,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
         android:text="Categroy"
-        app:layout_constraintBottom_toTopOf="@+id/textView38"
-        app:layout_constraintEnd_toEndOf="@+id/textView38"
-        app:layout_constraintStart_toStartOf="@+id/textView38"
-        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/categoryTextView"
+        app:layout_constraintEnd_toEndOf="@+id/categoryTextView"
+        app:layout_constraintStart_toStartOf="@+id/categoryTextView"
+        app:layout_constraintTop_toBottomOf="@+id/transactionAmountTextView" />
 
     <TextView
         android:id="@+id/textView27"
@@ -224,13 +229,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="Transaction Receipt"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/transactionReceiptImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+        app:layout_constraintTop_toBottomOf="@+id/categoryTextView" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/categoryTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="45dp"
@@ -246,7 +252,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/transactionReceiptImageView"
         android:layout_width="320dp"
         android:layout_height="128dp"
         android:layout_marginStart="41dp"
@@ -270,5 +276,5 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/transactionReceiptImageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

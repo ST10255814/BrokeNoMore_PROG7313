@@ -81,13 +81,13 @@
                 android:text="Please ensure that all the details that are entered are accurate as no changes are permitted after"
                 android:textColor="@color/black"
                 android:textStyle="italic"
-                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintBottom_toTopOf="@+id/incomeTextDisplay"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/incomeTextDisplay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -138,7 +138,7 @@
                 android:background="@drawable/spinner_background"
                 android:ems="10"
                 android:hint="23 Apr 2024"
-                android:inputType="datetime"
+                android:inputType="date"
                 android:paddingStart="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/transactionAmountEditTxt"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -171,7 +171,7 @@
                 android:ems="10"
                 android:hint="23 Apr 2024"
                 android:paddingStart="10dp"
-                android:inputType="datetime"
+                android:inputType="date"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -224,7 +224,7 @@
                 android:textColor="@color/black"
                 android:textSize="17dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/imageView3"
+                app:layout_constraintBottom_toTopOf="@+id/receipt_Image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -248,7 +248,7 @@
                 app:layout_constraintVertical_bias="0.896" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/receipt_Image"
                 android:layout_width="388dp"
                 android:layout_height="240dp"
                 app:layout_constraintBottom_toTopOf="@+id/Upload_Receipt"
@@ -310,7 +310,7 @@
             android:focusable="true"/>
 
         <ImageView
-            android:id="@+id/allBudgets"
+            android:id="@+id/walletTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -342,6 +342,7 @@
             android:focusable="true"/>
 
         <ImageView
+            android:id="@+id/gamificationTab"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
