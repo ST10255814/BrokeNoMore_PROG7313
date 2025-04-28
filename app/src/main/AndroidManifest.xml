@@ -13,6 +13,9 @@
         android:theme="@style/Theme.BrokeNoMore_PROG7313"
         tools:targetApi="31">
         <activity
+            android:name=".Transaction_Filter"
+            android:exported="false" />
+        <activity
             android:name=".View_transaction"
             android:exported="false" />
         <activity
@@ -53,8 +56,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
-
 
 </manifest>

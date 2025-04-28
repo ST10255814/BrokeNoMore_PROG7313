@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Transaction_Filter">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="43dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/app_settings" />
+
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="BrokeNoMore"
+            android:textAlignment="center"
+            android:textColor="@color/primary_dark_green"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/user_png"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/transactionEndDateFilter"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/spinner_background"
+        android:ems="10"
+        android:hint="End date: 24 Apr 2024"
+        android:inputType="date"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filter" />
+
+    <EditText
+        android:id="@+id/transactionStartDateFilter"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/spinner_background"
+        android:ems="10"
+        android:hint="start date: 23 Apr 2024"
+        android:inputType="date"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/filter"
+        app:layout_constraintEnd_toStartOf="@+id/filter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/filter" />
+
+    <Button
+        android:id="@+id/filter"
+        android:layout_width="129dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="18dp"
+        android:backgroundTint="#28BF9C"
+        android:fontFamily="@font/inter_extrabold"
+        android:text="filter"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/transactionEndDateFilter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/transactionStartDateFilter"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactionPeriodView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="13dp"
+        android:background="@color/faded_white"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"></androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoryPeroidView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/faded_white"
+        app:layout_constraintBottom_toTopOf="@+id/returnbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"></androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/returnbtn"
+        android:layout_width="207dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="19dp"
+        android:backgroundTint="#28BF9C"
+        android:fontFamily="@font/inter_extrabold"
+        android:text="Return"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categoryPeroidView" />
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/primary_dark_green"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnbtn">
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/home_png" />
+
+        <ImageView
+            android:id="@+id/walletTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/wallet_png" />
+
+        <ImageView
+            android:id="@+id/addBudgetButton"
+            android:layout_width="2dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/circle_button"
+            android:clickable="true"
+            android:elevation="6dp"
+            android:focusable="true"
+            android:src="@drawable/add_png" />
+
+        <ImageView
+            android:id="@+id/transactionHistory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/clock_png" />
+
+        <ImageView
+            android:id="@+id/gamificationTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/reward_png" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="231dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Transaction peroid"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/transactionPeriodView"
+        app:layout_constraintStart_toStartOf="@+id/transactionPeriodView"
+        app:layout_constraintTop_toBottomOf="@+id/transactionEndDateFilter" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="214dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="9dp"
+        android:text="categories"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/categoryPeroidView"
+        app:layout_constraintStart_toStartOf="@+id/categoryPeroidView"
+        app:layout_constraintTop_toBottomOf="@+id/transactionPeriodView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

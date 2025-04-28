@@ -31,12 +31,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_weight="1"
             android:text="BrokeNoMore"
-            android:textColor="@color/primary_dark_green"
             android:textAlignment="center"
+            android:textColor="@color/primary_dark_green"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_weight="1" />
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/profilePic"
