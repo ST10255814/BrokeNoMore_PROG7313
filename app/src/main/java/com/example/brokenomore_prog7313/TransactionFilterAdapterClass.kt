@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
+import com.example.brokenomore_prog7313.TransactionAdapterClass.ViewHolderClass
 
-class TransactionAdapterClass(
-    private val transactionList: ArrayList<TransactionDataClass>,
-    private val onItemClick: (TransactionDataClass) -> Unit
-) : Adapter<TransactionAdapterClass.ViewHolderClass>() {
+class TransactionFilterAdapterClass(
+    private val transactionList: ArrayList<TransactionDataClass>
+) : Adapter<TransactionFilterAdapterClass.ViewHolderClass>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.transaction_item_layout, parent, false)
@@ -29,14 +29,10 @@ class TransactionAdapterClass(
 
         holder.transactionDate.text = formattedDate
         holder.transactionCategory.text = currentItem.description
-        holder.transactionAmount.text = "-R%.2f".format(currentItem.amount)
-
-        holder.itemView.setOnClickListener {
-            onItemClick(currentItem)
-        }
+        holder.transactionAmount.text = "R%.2f".format(currentItem.amount)
     }
 
-    class ViewHolderClass(itemView : View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderClass (itemView: View): RecyclerView.ViewHolder(itemView){
         val transactionDate : TextView = itemView.findViewById(R.id.transactionDateTxt)
         val transactionCategory : TextView = itemView.findViewById(R.id.transactionDescriptionTxt)
         val transactionAmount : TextView = itemView.findViewById(R.id.transactionAmountTxt)

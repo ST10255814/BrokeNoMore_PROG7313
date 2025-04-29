@@ -19,9 +19,6 @@
             android:name=".View_transaction"
             android:exported="false" />
         <activity
-            android:name=".AllBudgets"
-            android:exported="false" />
-        <activity
             android:name=".BudgetManagement"
             android:exported="false" />
         <activity

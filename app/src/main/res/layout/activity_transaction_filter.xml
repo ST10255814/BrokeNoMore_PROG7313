@@ -15,7 +15,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/filter"
+        app:layout_constraintBottom_toTopOf="@+id/filterBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -57,11 +57,11 @@
         android:hint="End date: 24 Apr 2024"
         android:inputType="date"
         android:paddingStart="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/transactionAmountDisplayTxt"
+        app:layout_constraintEnd_toEndOf="@+id/transactionAmountDisplayTxt"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filter" />
+        app:layout_constraintTop_toBottomOf="@+id/filterBtn" />
 
     <EditText
         android:id="@+id/transactionStartDateFilter"
@@ -74,19 +74,19 @@
         android:hint="start date: 23 Apr 2024"
         android:inputType="date"
         android:paddingStart="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/filter"
-        app:layout_constraintEnd_toStartOf="@+id/filter"
+        app:layout_constraintBottom_toTopOf="@+id/filterBtn"
+        app:layout_constraintEnd_toStartOf="@+id/filterBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/filter" />
+        app:layout_constraintTop_toTopOf="@+id/filterBtn" />
 
     <Button
-        android:id="@+id/filter"
+        android:id="@+id/filterBtn"
         android:layout_width="129dp"
         android:layout_height="60dp"
         android:layout_marginEnd="18dp"
         android:backgroundTint="#28BF9C"
         android:fontFamily="@font/inter_extrabold"
-        android:text="filter"
+        android:text="Filter"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/transactionEndDateFilter"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,10 +101,12 @@
         android:layout_marginEnd="17dp"
         android:layout_marginBottom="13dp"
         android:background="@color/faded_white"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintBottom_toTopOf="@+id/categoriesAmountDisplayTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"></androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/transactionAmountDisplayTxt">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoryPeroidView"
@@ -117,7 +119,9 @@
         app:layout_constraintBottom_toTopOf="@+id/returnbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"></androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/categoriesAmountDisplayTxt">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/returnbtn"
@@ -200,25 +204,29 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/transactionAmountDisplayTxt"
         android:layout_width="231dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Transaction peroid"
+        android:text="Transactions"
         android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/transactionPeriodView"
         app:layout_constraintStart_toStartOf="@+id/transactionPeriodView"
         app:layout_constraintTop_toBottomOf="@+id/transactionEndDateFilter" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/categoriesAmountDisplayTxt"
         android:layout_width="214dp"
         android:layout_height="29dp"
         android:layout_marginStart="6dp"
         android:layout_marginBottom="9dp"
-        android:text="categories"
+        android:text="Categories"
         android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/categoryPeroidView"
         app:layout_constraintStart_toStartOf="@+id/categoryPeroidView"
         app:layout_constraintTop_toBottomOf="@+id/transactionPeriodView" />

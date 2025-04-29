@@ -28,6 +28,7 @@ class HomeScreen : AppCompatActivity() {
     private lateinit var categoryArrayList: ArrayList<CategoryDatabaseData>
     private lateinit var budgetArrayList : ArrayList<BudgetDataClass>
     private lateinit var budgetDisplayArrayList : ArrayList<BudgetDisplayData>
+    private var totalExpenseCost: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +64,12 @@ class HomeScreen : AppCompatActivity() {
             Toast.makeText(this, "Coming Soon!", Toast.LENGTH_LONG).show()
         }
 
+        binding.filterTab.setOnClickListener {
+            val intent = Intent(this, Transaction_Filter::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         binding.logOut.setOnClickListener{
             auth.signOut()
             val intent = Intent(this, LoginActivity::class.java)
@@ -94,10 +101,12 @@ class HomeScreen : AppCompatActivity() {
         firebaseTransactionRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 transactionArrayList.clear()
+                totalExpenseCost = 0.0
                 if(snapshot.exists()){
                     for(transactionSnapshot in snapshot.children){
                         val transaction = transactionSnapshot.getValue(TransactionDataClass::class.java)
                         transactionArrayList.add(transaction!!)
+                        totalExpenseCost += transaction.amount ?: 0.0
                     }
                     transactionRecyclerView.adapter = TransactionAdapterClass(transactionArrayList) { transaction ->
                         val intent = Intent(this@HomeScreen, TransactionManagement::class.java)
@@ -192,7 +201,7 @@ class HomeScreen : AppCompatActivity() {
             totalMin += budget.minAmount
             totalMax += budget.maxAmount
         }
-        val finalAmountLeft = totalMax - totalMin
+        val finalAmountLeft = (totalMax - totalMin) - totalExpenseCost
 
         val totalMaxText = "out of R%.2f budgeted".format(totalMax)
         val totalMinText = "R%.2f left".format(finalAmountLeft)

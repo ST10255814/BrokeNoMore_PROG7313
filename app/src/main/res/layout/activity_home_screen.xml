@@ -113,19 +113,24 @@
 
         <TextView
             android:id="@+id/tabExpenses"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Expenses"
+            android:layout_weight="1"
+            android:text="Budgets"
+            android:paddingStart="6dp"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="start" />
 
         <TextView
-            android:id="@+id/tabIncome"
-            android:layout_width="wrap_content"
+            android:id="@+id/filterTab"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Income"
-            android:layout_marginStart="24dp"
-            android:textColor="@color/tab_inactive"/>
+            android:layout_weight="1"
+            android:text="Filter Expenses"
+            android:textColor="@color/primary_dark_green"
+            android:gravity="end"
+            android:clickable="true"/>
     </LinearLayout>
 
     <!-- Category Cards -->

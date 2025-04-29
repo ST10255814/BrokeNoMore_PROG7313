@@ -30,6 +30,8 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.rgtPassword.text.toString()
             if(email.isNotEmpty() && password.isNotEmpty()){
                 registerUser(email, password)
+                Toast.makeText(this, "User successfully registered",
+                    Toast.LENGTH_LONG).show()
             }else{
                 Toast.makeText(this, "please ensure that all fields are filled in correctly",
                     Toast.LENGTH_LONG).show()
